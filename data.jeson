@@ -1,4 +1,5 @@
-"cities": {
+{
+  "cities": {
     "بورتسودان": 1.35,
     "الخرطوم": 1.0,
     "أم درمان": 1.0,
@@ -14,75 +15,27 @@
     "الفاشر": 0.98,
     "دنقلا": 0.92,
     "سنار": 0.90
-  }
-<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>نجارك</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:Tahoma}body{background:#1a120b;color:#fff;padding-bottom:70px}header{background:#8b5a2b;padding:16px;text-align:center}.topbar{background:#241709;padding:10px 14px;display:flex;gap:8px;align-items:center}.topbar select{flex:1;background:#111;color:#fff;border:1px solid #d4a24a;padding:10px;border-radius:10px}.tabs{display:flex;gap:6px;overflow-x:auto;padding:10px}.tabs button{background:#2a1e12;color:#fff;border:1px solid #555;padding:8px 14px;border-radius:20px;white-space:nowrap}.tabs button.active{background:#d4a24a;color:#000;font-weight:bold}.section{display:none;padding:0 14px}.section.active{display:block}.card{background:#2a1e12;border:1px solid #444;border-radius:15px;padding:14px;margin-bottom:12px;overflow:hidden}.card img{width:100%;height:160px;object-fit:cover;border-radius:12px;margin-bottom:10px}.card h3{margin-bottom:6px}.card p{font-size:13px;opacity:.8;line-height:1.6}.badge{background:#d4a24a;color:#000;font-size:11px;padding:3px 8px;border-radius:20px;display:inline-block;margin-top:5px}.myprice{background:#065f46;color:#fff;font-weight:bold;padding:8px;border-radius:8px;margin-top:6px;font-size:13px}.note{background:#3a2c00;color:#facc15;font-size:11px;padding:6px 8px;border-radius:8px;margin-top:6px}.btn{width:100%;background:#d4a24a;border:none;padding:11px;border-radius:10px;font-weight:bold;margin-top:8px}.btn2{background:#25D366;color:#fff}.btn3{background:#111;color:#fff;border:1px solid #555}input,select,textarea{width:100%;background:#111;color:#fff;border:1px solid #555;padding:11px;border-radius:10px;margin:5px 0}.result{background:#d4a24a;color:#000;padding:12px;border-radius:10px;margin-top:10px;font-weight:bold;text-align:center;display:none;line-height:1.8}.bottom{position:fixed;bottom:0;left:0;right:0;background:#241709;display:flex;justify-content:space-around;padding:9px 0}.bottom button{background:none;border:none;color:#aaa;font-size:12px}.bottom button.active{color:#d4a24a;font-weight:bold}.filter{display:flex;gap:6px;overflow-x:auto;margin-bottom:10px}.filter button{background:#2a1e12;color:#fff;border:1px solid #555;padding:7px 12px;border-radius:20px;white-space:nowrap}.filter button.active{background:#d4a24a;color:#000}.carp{display:flex;gap:10px;align-items:center}.carp img{width:65px;height:65px;border-radius:50%;object-fit:cover;margin:0}.sync{font-size:11px;color:#4ade80;text-align:center}label{font-size:12px;opacity:.8}#authScreen{padding:20px;max-width:400px;margin:0 auto}#authScreen h1{font-size:32px;text-align:center;margin:20px 0 5px}#authScreen p{text-align:center;opacity:.8;margin-bottom:20px}.authBox{background:#2a1e12;border:1px solid #444;border-radius:15px;padding:16px}.userBar{background:#241709;padding:8px 14px;display:flex;justify-content:space-between;align-items:center;font-size:13px}.userBar button{background:#d4a24a;border:none;padding:6px 10px;border-radius:8px;font-weight:bold}</style></head><body>
-
-<!-- شاشة الدخول -->
-<div id="authScreen">
-<h1>🪚 نجارك</h1><p>سوق النجارين السوداني - قارن الأسعار</p>
-<div class="authBox" id="loginBox">
-<h3 style="margin-bottom:10px">دخول</h3>
-<input id="loginId" placeholder="رقمك أو بريدك - مثال 0922168969">
-<input id="loginPass" type="password" placeholder="كلمة المرور">
-<button class="btn" onclick="doLogin()">دخول</button>
-<button class="btn btn3" onclick="showRegister()">ما عندك حساب؟ سجل جديد</button>
-<button class="btn btn3" onclick="guestLogin()">خش كضيف بدون تسجيل</button>
-<div id="loginMsg" class="result"></div>
-</div>
-<div class="authBox" id="registerBox" style="display:none">
-<h3 style="margin-bottom:10px">حساب جديد</h3>
-<input id="regName" placeholder="اسمك الكامل">
-<input id="regId" placeholder="رقمك أو بريدك">
-<input id="regPass" type="password" placeholder="اختار كلمة مرور">
-<select id="regType"><option value="زبون">أنا زبون - داير اطلب نجار</option><option value="نجار">أنا نجار - داير اعرض شغلي</option></select>
-<select id="regCity"><option>بورتسودان</option><option>الخرطوم</option><option>عطبرة</option><option>مدني</option><option>كسلا</option></select>
-<button class="btn" onclick="doRegister()">إنشاء حساب</button>
-<button class="btn btn3" onclick="showLogin()">عندك حساب؟ ادخل</button>
-<div id="regMsg" class="result"></div>
-</div>
-<p style="margin-top:15px;font-size:12px">بورتسودان أغلى مدينة في السودان للنجارة، باقي المدن أرخص بـ 15% - 35%</p>
-</div>
-
-<!-- التطبيق -->
-<div id="appScreen" style="display:none">
-<header><h1>🪚 نجارك</h1><p>كل نجار بسعرو - بورتسودان أغلى مدينة</p><div id="syncStatus" class="sync">جاري جلب البيانات...</div></header>
-<div class="userBar"><span id="userHello">أهلا بيك</span><button onclick="logout()">خروج</button></div>
-<div class="topbar">📍 مدينتك: <select id="citySelect" onchange="changeCity()"></select></div>
-<div class="tabs"><button class="active" onclick="show('home',this)">الرئيسية</button><button onclick="show('collections',this)">تشكيلات</button><button onclick="show('calc',this)">حاسبة</button><button onclick="show('market',this)">سوق النجارين</button><button onclick="show('join',this)">انضم كنجار</button></div>
-<div id="home" class="section active"><div class="card"><h3>اهلا بيك في <span id="cityNameHome">بورتسودان</span></h3><p id="cityPriceNote">بورتسودان أغلى مدينة - الأسعار فيها أعلى بنسبة 35% من الخرطوم</p><div class="note">⚠️ الأسعار تقريبية، كل نجار بسعرو.</div><button class="btn" onclick="show('market',document.querySelectorAll('.tabs button')[3])">قارن أسعار النجارين</button></div><div id="homeCollections"></div></div>
-<div id="collections" class="section"><div class="filter" id="catFilter"></div><div id="collectionsList"></div></div>
-<div id="calc" class="section"><div class="card"><h3>حاسبة تقديرية - <span class="cityLabel">بورتسودان</span></h3><label>نوع الخشب</label><select id="woodType" onchange="updateFootPrice()"></select><label>الطول بالقدم</label><input id="L" type="number" placeholder="6"><label>العرض بالقدم</label><input id="W" type="number" placeholder="3"><label>عدد القطع</label><input id="Qty" type="number" value="1"><label>سعر القدم التقريبي</label><input id="FootPrice" type="number" value="5500"><label>مصنعية تقريبية</label><input id="Labor" type="number" value="0"><button class="btn" onclick="calc()">احسب سعر تقريبي</button><div id="calcResult" class="result"></div></div></div>
-<div id="market" class="section"><input id="searchCarp" placeholder="🔍 ابحث باسم النجار او المدينة..." oninput="renderCarpenters()"><div id="carpentersList"></div><div class="card"><p>داير تعرض شغلك بسعرك انت؟</p><button class="btn" onclick="show('join',document.querySelectorAll('.tabs button')[4])">سجل كنجار مجاناً</button></div></div>
-<div id="join" class="section"><div class="card"><h3>انضم كنجار - خت سعرك انت</h3><input id="jName" placeholder="اسمك / اسم الورشة"><input id="jPhone" placeholder="رقم الواتساب"><select id="jCity"></select><select id="jWork"><option>دواليب</option><option>ترابيز مدرجة</option><option>ابواب</option><option>تسريحات</option><option>شماعات</option><option>كل الشغل</option></select><label>سعرك انت - من كم؟</label><input id="jMin" type="number" placeholder="500000"><label>سعرك انت - إلى كم؟</label><input id="jMax" type="number" placeholder="650000"><label>سعرك ده لي ياتو شغلة؟</label><input id="jPriceFor" placeholder="مثال: دولاب 3 ضلفة مهوقني"><input id="jImg" placeholder="رابط صورة شغلك (اختياري)"><textarea id="jDesc" placeholder="خبرتك ونوع الخشب..."></textarea><button class="btn btn2" onclick="joinCarpenter()">نشر شغلي بسعري</button><div id="joinResult" class="result"></div></div></div>
-<div class="bottom"><button class="active" onclick="show('home',this)">الرئيسية</button><button onclick="show('collections',this)">تشكيلات</button><button onclick="show('calc',this)">حاسبة</button><button onclick="show('market',this)">السوق</button><button onclick="show('join',this)">انضم</button></div>
-</div>
-
-<script>
-const DATA_URL="https://raw.githubusercontent.com/wwwalgasoss322-oss/najjarak-data/main/data.json";
-const ADMIN_WHATSAPP="249922168969";
-let cities={"بورتسودان":1.35,"الخرطوم":1.0,"أم درمان":1.0,"بحري":1.0,"مدني":0.90,"كسلا":0.92,"القضارف":0.95,"عطبرة":0.85,"شندي":0.85,"الأبيض":0.95,"كوستي":0.90,"نيالا":0.98,"الفاشر":0.98,"دنقلا":0.92,"سنار":0.90};
-let woodBase=[["موسكي - القدم",5500],["مهوقني - القدم",12000]];let collections=[];let carpenters=[];let currentCity="بورتسودان";let currentRate=1.35;let activeCat="الكل";
-function fmt(n){return Math.round(n).toLocaleString('en-US')+" ج"}
-function range(min,max){if(!min||!max) return "اطلب سعر"; return "من "+fmt(min*currentRate)+" إلى "+fmt(max*currentRate)}
-function showRegister(){document.getElementById('loginBox').style.display='none';document.getElementById('registerBox').style.display='block'}
-function showLogin(){document.getElementById('registerBox').style.display='none';document.getElementById('loginBox').style.display='block'}
-function doRegister(){let name=document.getElementById('regName').value.trim(),id=document.getElementById('regId').value.trim(),pass=document.getElementById('regPass').value;if(!name||!id||!pass){alert('املا كل الخانات');return}let users=JSON.parse(localStorage.getItem('najjarak_users')||'[]');if(users.find(u=>u.id==id)){alert('الحساب ده موجود، اعمل دخول');showLogin();return}let user={name,id,pass,type:document.getElementById('regType').value,city:document.getElementById('regCity').value};users.push(user);localStorage.setItem('najjarak_users',JSON.stringify(users));localStorage.setItem('najjarak_current',JSON.stringify(user));enterApp(user)}
-function doLogin(){let id=document.getElementById('loginId').value.trim(),pass=document.getElementById('loginPass').value;let users=JSON.parse(localStorage.getItem('najjarak_users')||'[]');let user=users.find(u=>u.id==id&&u.pass==pass);if(!user){let m=document.getElementById('loginMsg');m.style.display='block';m.innerHTML='رقمك او كلمة المرور غلط، سجل جديد';return}localStorage.setItem('najjarak_current',JSON.stringify(user));enterApp(user)}
-function guestLogin(){enterApp({name:'ضيف',type:'زبون',city:'بورتسودان'})}
-function logout(){localStorage.removeItem('najjarak_current');document.getElementById('appScreen').style.display='none';document.getElementById('authScreen').style.display='block'}
-function enterApp(user){document.getElementById('authScreen').style.display='none';document.getElementById('appScreen').style.display='block';document.getElementById('userHello').innerText='أهلا '+user.name+' - '+user.type+' | '+user.city;if(user.city){currentCity=user.city;currentRate=cities[currentCity]||1.0}document.getElementById('jName').value=user.name||'';document.getElementById('jPhone').value=user.id||'';load()}
-function initCities(){let sel=document.getElementById('citySelect');let j=document.getElementById('jCity');sel.innerHTML="";j.innerHTML="";Object.keys(cities).forEach(c=>{sel.innerHTML+=`<option ${c==currentCity?'selected':''}>${c}</option>`;j.innerHTML+=`<option>${c}</option>`})}
-function cityNote(){let el=document.getElementById('cityPriceNote');if(currentCity=='بورتسودان') el.innerText='بورتسودان أغلى مدينة - الأسعار فيها أعلى بنسبة 35% من الخرطوم، لأنو الخشب بيجي من بعيد.';else if(currentRate<1) el.innerText=currentCity+' أرخص من بورتسودان بـ '+Math.round((1.35-currentRate)/1.35*100)+'% - استفيد من الفرق.';else el.innerText=currentCity+' سعرها متوسط، أرخص من بورتسودان بـ 26%.'}
-function changeCity(){currentCity=document.getElementById('citySelect').value;currentRate=cities[currentCity];document.getElementById('cityNameHome').innerText=currentCity;document.querySelectorAll('.cityLabel').forEach(e=>e.innerText=currentCity);cityNote();renderAll()}
-function renderAll(){renderCollections();renderCarpenters();let h=document.getElementById('homeCollections');h.innerHTML="<h3 style='margin:10px 0'>🔥 تشكيلات مختارة</h3>";collections.slice(0,3).forEach(c=>{let mn=c.min||c.price, mx=c.max||c.price;h.innerHTML+=`<div class="card"><img src="${c.img}"><h3>${c.n}</h3><span class="badge">${c.cat} - سعر السوق: ${range(mn,mx)}</span><div class="note">في ${currentCity} - كل نجار بسعرو</div></div>`});let ws=document.getElementById('woodType');ws.innerHTML="";woodBase.forEach(w=>{ws.innerHTML+=`<option value="${w[1]}">${w[0]} - ${fmt(w[1]*currentRate)} تقريبي</option>`});updateFootPrice()}
-function renderCollections(){let cats=["الكل",...new Set(collections.map(c=>c.cat))];let f=document.getElementById('catFilter');f.innerHTML="";cats.forEach(cat=>{f.innerHTML+=`<button class="${cat==activeCat?'active':''}" onclick="setCat('${cat}')">${cat}</button>`});let l=document.getElementById('collectionsList');l.innerHTML="";collections.filter(c=>activeCat=="الكل"||c.cat==activeCat).forEach(c=>{let mn=c.min||c.price, mx=c.max||c.price;l.innerHTML+=`<div class="card"><img src="${c.img}"><h3>${c.n}</h3><p>${c.cat}</p><span class="badge">في ${currentCity}: ${range(mn,mx)}</span><div class="note">⚠️ بورتسودان أغلى، ${currentCity} سعرها مختلف</div><button class="btn btn2" onclick="askPrice('${c.n}')">قارن أسعار النجارين</button></div>`})}
-function setCat(cat){activeCat=cat;renderCollections()}
-function renderCarpenters(){let q=(document.getElementById('searchCarp')?.value||"").toLowerCase();let l=document.getElementById('carpentersList');l.innerHTML="";let list=carpenters.filter(c=>(c.name+c.city+c.work).toLowerCase().includes(q));list.sort((a,b)=>(a.min||999999999)-(b.min||999999999));list.forEach(c=>{l.innerHTML+=`<div class="card"><div class="carp"><img src="${c.img||'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400'}"><div><h3>${c.name}</h3><p>📍 ${c.city} | 🪚 ${c.work}<br>⭐ ${c.rating||'4.8'} | 📞 ${c.phone}</p></div></div><div class="myprice">💰 سعرو هو: ${range(c.min,c.max)}<br><small>${c.note||''}</small></div><a href="https://wa.me/249${c.phone.replace(/^0/,'')}?text=${encodeURIComponent('السلام عليكم، شفت سعرك في تطبيق نجارك')}" target="_blank"><button class="btn btn2">اطلب منو بسعرو - واتساب</button></a></div>`});if(!list.length)l.innerHTML="<p>لا يوجد نجارين بعد</p>"}
-function show(id,b){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.bottom button').forEach(x=>x.classList.remove('active'));if(b)b.classList.add('active')}
-function updateFootPrice(){document.getElementById('FootPrice').value=document.getElementById('woodType').value}
-function calc(){let L=+document.getElementById('L').value,W=+document.getElementById('W').value,Q=+document.getElementById('Qty').value||1,FP=+document.getElementById('FootPrice').value,Labor=+document.getElementById('Labor').value||0;if(!L||!W||!FP){alert('اكتب الطول والعرض');return}let feet=L*W*Q;let total=feet*FP*currentRate+Labor;let r=document.getElementById('calcResult');r.style.display='block';r.innerHTML=`عدد الاقدام: ${feet}<br>سعر تقريبي في ${currentCity}: ${fmt(total)}<br><small>بورتسودان أغلى من باقي المدن</small>`}
-function askPrice(item){window.open(`https://wa.me/${ADMIN_WHATSAPP}?text=${encodeURIComponent('السلام عليكم، شفت '+item+' في نجارك، داير اعرف أسعار النجارين؟ المدينة: '+currentCity)}`,'_blank')}
-function joinCarpenter(){let n=document.getElementById('jName').value,p=document.getElementById('jPhone').value;if(!n||!p){alert('اكتب اسمك ورقمك');return}let newCarp={name:n,city:document.getElementById('jCity').value,work:document.getElementById('jWork').value,phone:p,min:+document.getElementById('jMin').value||0,max:+document.getElementById('jMax').value||0,note:document.getElementById('jPriceFor').value+' - '+document.getElementById('jDesc').value,rating:'جديد',img:document.getElementById('jImg').value||''};let local=JSON.parse(localStorage.getItem('najjarak_local_carp')||'[]');local.push(newCarp);localStorage.setItem('najjarak_local_carp',JSON.stringify(local));carpenters.push(newCarp);renderCarpenters();let msg=`طلب انضمام نجار%0Aالاسم: ${n}%0Aالرقم: ${p}%0Aالمدينة: ${newCarp.city}%0A💰 سعرو: من ${newCarp.min} الى ${newCarp.max}%0Aالشغلة: ${newCarp.note}`;window.open(`https://wa.me/${ADMIN_WHATSAPP}?text=${msg}`,'_blank');let r=document.getElementById('joinResult');r.style.display='block';r.innerHTML='تم نشر شغلك بسعرك! واترسلت نسخة للإدارة على واتساب.';show('market',document.querySelectorAll('.tabs button')[3])}
-async function load(){try{let res=await fetch(DATA_URL+"?t="+Date.now());let d=await res.json();if(d.cities)cities=d.cities;if(d.wood)woodBase=d.wood.map(w=>[w.name,w.price]);if(d.collections)collections=d.collections;if(d.carpenters)carpenters=d.carpenters;let local=JSON.parse(localStorage.getItem('najjarak_local_carp')||'[]');carpenters=carpenters.concat(local);document.getElementById('syncStatus').innerText="✅ متصل مع GitHub"}catch(e){document.getElementById('syncStatus').innerText="⚠️ ما في نت"}initCities();cityNote();renderAll()}
-let saved=localStorage.getItem('najjarak_current');if(saved){enterApp(JSON.parse(saved))}
-</script></body></html>
+  },
+  "wood": [
+    {"name": "موسكي - القدم", "price": 5500},
+    {"name": "مهوقني - القدم", "price": 12000},
+    {"name": "تيك - القدم", "price": 15000},
+    {"name": "كنتر - القدم", "price": 8000},
+    {"name": "سويدي - القدم", "price": 6500}
+  ],
+  "collections": [
+    {"cat": "دواليب", "n": "دولاب 3 ضلفة مهوقني", "img": "https://images.unsplash.com/photo-1558997519-83ea9252edf4?w=800", "min": 600000, "max": 900000},
+    {"cat": "دواليب", "n": "دولاب 2 ضلفة عصري", "img": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800", "min": 350000, "max": 500000},
+    {"cat": "ترابيز", "n": "طاولة قهوة ريزن النهر", "img": "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=800", "min": 250000, "max": 450000},
+    {"cat": "ترابيز", "n": "تربيزة مدرجة 3 قطع", "img": "https://images.unsplash.com/photo-1499933374294-4584851497cc?w=800", "min": 120000, "max": 220000},
+    {"cat": "ابواب", "n": "باب خشب مهوقني فاخر", "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800", "min": 150000, "max": 280000},
+    {"cat": "ابواب", "n": "باب صاج + خشب", "img": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800", "min": 180000, "max": 300000},
+    {"cat": "تسريحات", "n": "تسريحة + مراية", "img": "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800", "min": 200000, "max": 350000},
+    {"cat": "شماعات", "n": "شماعة ملابس خشب", "img": "https://images.unsplash.com/photo-1558997519-83ea9252edf4?w=800", "min": 45000, "max": 80000},
+    {"cat": "شماعات", "n": "شماعة حائط 5 خطاف", "img": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800", "min": 25000, "max": 45000}
+  ],
+  "carpenters": [
+    {"name": "المعلم عثمان - بورتسودان", "city": "بورتسودان", "work": "دواليب و ابواب", "phone": "0912345678", "img": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400", "rating": "4.9", "min": 600000, "max": 750000, "note": "دولاب 3 ضلفة مهوقني"},
+    {"name": "ورشة النور - عطبرة", "city": "عطبرة", "work": "ترابيز و تسريحات", "phone": "0911111111", "img": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400", "rating": "4.8", "min": 500000, "max": 650000, "note": "دولاب 3 ضلفة"}
+  ]
+}
